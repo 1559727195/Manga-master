@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tongming.manga">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:name=".mvp.base.BaseApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.tongming.manga.cusview.CustomCachingGlideModule"
+            android:value="GlideModule" />
+
+        <activity
+            android:name=".mvp.view.activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HomeSplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mvp.view.activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".mvp.view.activity.PersonCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.PersonalityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.LogonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.SearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.view.activity.ComicDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.PageActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/PageActivityTheme" />
+        <activity
+            android:name=".mvp.view.activity.WatchSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.HistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.SelectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SelectActivityTheme" />
+        <activity
+            android:name=".mvp.view.activity.DownloadManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.DownloadDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SelectActivityTheme" />
+        <activity
+            android:name=".mvp.view.activity.LocalActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".mvp.download.DownloadManager">
+            <intent-filter>
+                <action android:name="com.tongming.manga.mvp.download.DownloadManager" />
+            </intent-filter>
+        </service>
+        <receiver android:name=".mvp.receiver.DownloadBroadcastReceiver" />
+    </application>
+
+</manifest>
